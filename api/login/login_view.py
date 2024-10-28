@@ -24,6 +24,7 @@ def login_view(request):
             messages.error(request, 'Invalid login credentials')
     return render(request,template_name)
 
+
 # View for Regiser
 def register_view(request):
     template_name = "html/auth-register-basic.html"
