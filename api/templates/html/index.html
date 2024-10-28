@@ -33,7 +33,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon/favicon.ico'%}" />
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.png'%}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -74,7 +74,7 @@
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
+            <a href="{% url 'home'%}" class="app-brand-link">
               <span class="app-brand-logo demo">
                 <svg
                   width="25"
@@ -143,7 +143,7 @@
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item active">
-              <a href="index.html" class="menu-link">
+              <a href="{% url 'home'%}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
@@ -218,17 +218,17 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="auth-login-basic.html" class="menu-link" target="_blank">
+                  <a href="{% url 'login_vista'%}" class="menu-link" target="_blank">
                     <div data-i18n="Basic">Login</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="auth-register-basic.html" class="menu-link" target="_blank">
+                  <a href="{% url 'register_vista'%}" class="menu-link" target="_blank">
                     <div data-i18n="Basic">Register</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="auth-forgot-password-basic.html" class="menu-link" target="_blank">
+                  <a href="{% url 'forgot_vista'%}" class="menu-link" target="_blank">
                     <div data-i18n="Basic">Forgot Password</div>
                   </a>
                 </li>
@@ -559,9 +559,9 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="auth-login-basic.html">
+                      <a class="dropdown-item">
                         <i class="bx bx-power-off me-2"></i>
-                        <span class="align-middle">Log Out</span>
+                        <button class="btn" id="logout-button">Log Out</button>
                       </a>
                     </li>
                   </ul>
@@ -599,8 +599,8 @@
                             src="{% static 'img/illustrations/man-with-laptop-light.png'%}"
                             height="140"
                             alt="View Badge User"
-                            data-app-dark-img="illustrations/man-with-laptop-dark.png"
-                            data-app-light-img="illustrations/man-with-laptop-light.png"
+                            data-app-dark-img="{% static 'illustrations/man-with-laptop-dark.png'%}"
+                            data-app-light-img="{% static 'illustrations/man-with-laptop-light.png'%}"
                           />
                         </div>
                       </div>
@@ -1172,9 +1172,12 @@
     <script src="{% static 'vendor/libs/popper/popper.js'%}"></script>
     <script src="{% static 'vendor/js/bootstrap.js'%}"></script>
     <script src="{% static 'vendor/libs/perfect-scrollbar/perfect-scrollbar.js'%}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="{% static 'vendor/js/menu.js'%}"></script>
     <!-- endbuild -->
+
+    <script src="{% static 'js/alerts/alert_logout.js'%}"></script>
 
     <!-- Vendors JS -->
     <script src="{% static 'vendor/libs/apex-charts/apexcharts.js'%}"></script>
